@@ -1,0 +1,38 @@
+<div  class="dialogbox" fxLayout="column">
+
+  <!-- <mat-icon>close</mat-icon> -->
+  <div fxLayoutAlign="end">
+    <button mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+ <div class="radio-button" fxLayout="column">
+  <span><strong>Select a delay reason</strong></span>
+
+  <div *ngFor="let Reason of Reasons"  fxLayoutGap="4px" >
+      <div *ngIf="!Reason.Selected" class="radio-button__box">
+        <mat-radio-button class="" fxLayout="column" (change)="display($event)" [value]="Reason.Id"  >
+          <span class="radio-button__box__title" ><strong>{{Reason.Id}}</strong></span>
+        </mat-radio-button>
+
+        <span class="radio-button__box__description">{{Reason.ReasonValue}}</span>
+
+      </div>
+
+      <div *ngIf="Reason.Selected" class="radio-button__box-selected">
+        <mat-radio-button class="" fxLayout="column" (change)="display($event)" [value]="Reason.Id" [checked]="Reason.Selected"  >
+          <span class="radio-button__box__title" ><strong>{{Reason.Id}}</strong></span>
+        </mat-radio-button>
+
+        <span class="radio-button__box__description">{{Reason.ReasonValue}}</span>
+
+      </div>
+
+  </div>
+
+  <button mat-raised-button class="done-button">Done & Send</button>
+
+ </div>
+
+</div>
